@@ -1,7 +1,5 @@
-#include <iostream>
 #include <cstdio>
 using namespace std;
-
 
 
 //Definition for a binary tree node.
@@ -17,12 +15,15 @@ using namespace std;
 class Solution {
 public:
     TreeNode* insertIntoBST(TreeNode* root, int val) {
+        // 新结点
         TreeNode* newNode = new TreeNode(val);
+        // 空树插入
         if (root == NULL) {
             return newNode;
         }
         TreeNode* cur = root;
         while (1){
+            // 应插入当前结点的右子树
             if(cur->val < val){
                 if(cur->right == NULL){
                     cur->right = newNode;
@@ -30,7 +31,7 @@ public:
                 }
                 cur = cur->right;
             }
-
+            // 应插入当前结点的左子树
             if(cur->val > val){
                 if(cur->left == NULL){
                     cur->left = newNode;
