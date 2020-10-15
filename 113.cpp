@@ -2,7 +2,12 @@
 #include <iostream>
 using namespace std;
 
-// 在二叉树中找到路径和为指定值的路径；
+// ***********
+// 给定一个二叉树和一个目标和，
+// 找到所有从根节点到叶子节点路径总和等于给定目标和的路径。
+// ***********
+
+
 struct TreeNode {
       int val;
       TreeNode *left;

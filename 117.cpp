@@ -3,7 +3,15 @@
 using namespace std;
 
 
+// ***********
 // 让二叉树的每个结点的next指针指向同层的右边结点；
+// 填充它的每个 next 指针，让这个指针指向其下一个右侧节点。
+// 如果找不到下一个右侧节点，则将 next 指针设置为 NULL。是
+// ***********
+
+
+
+
 // Definition for a Node.
 class Node {
 public:
