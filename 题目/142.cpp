@@ -32,7 +32,7 @@ public:
 };
 */
 
-// 指针法
+// 双指针法
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
