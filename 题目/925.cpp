@@ -35,9 +35,29 @@ public:
                 q++;
             }
         }
-        // name 和 typed 的块数不相等
-        if (p < name.length() || q < typed.length())
-            return false;
-        return true;
+        // name 和 typed 的块数不相等，就返回false
+        return p == name.length() && q == typed.length();
     }
 };
+
+
+bool isLongPressedName(string name, string typed) {
+    int p = 0, q = 0;
+    // 遍历 typed 中的每一个字符, 会有三种情况
+    //      1.与name中的对应字符相等(匹配);
+    //      2.否则，与typed前一个字符相等(长按);
+    //      3.否则，即失配;  
+    while (q < typed.length()){
+        if(name[p] == typed[q]){
+            p++;
+            q++;
+            continue;
+        }
+        else if(q > 0 && typed[q] == typed[q-1])
+            q++;
+        else 
+            return false;
+    }
+    // 考虑name的块数比typed多的情况
+    return p == name.length();
+}
