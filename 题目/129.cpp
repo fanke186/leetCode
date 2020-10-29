@@ -23,17 +23,16 @@ using namespace std;
 // DFS
 class Solution {
 public:
-    int dfs(TreeNode* t, int prevSum) {
+    int dfs(TreeNode*t, int preSum) {
+        // 递归边界
         if (t == nullptr) return 0;
-        int sum = prevSum * 10 + t->val;
-
-        if (t->left == nullptr && t->right == nullptr) {
+        int sum = preSum * 10 + t->val;
+        // 是叶子结点
+        if (t->left == nullptr && t->right == nullptr)
             return sum;
-        } else {
+        else 
             return dfs(t->left, sum) + dfs(t->right, sum);
-        }
     }
-
     int sumNumbers(TreeNode* root) {
         return dfs(root, 0);
     }
@@ -76,3 +75,6 @@ public:
         return sum;
     }
 };
+
+
+
