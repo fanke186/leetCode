@@ -72,6 +72,7 @@ public:
         // 递归边界
         if (l == r)
             return (info){nums[l], nums[l], nums[l], nums[l]};
+            
         int m = (l+r)/2;
         auto lHalf = get(nums, l, m);
         auto rHalf = get(nums, m+1, r);
