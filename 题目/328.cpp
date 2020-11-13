@@ -20,8 +20,9 @@ using namespace std;
 class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
-        if (head == nullptr)
+        if (head == nullptr) {
             return head;
+        }
         ListNode* oddTail = head;
         ListNode* evenTail = head->next;
         //ListNode* oddHead = head;
