@@ -37,3 +37,30 @@ public:
         return ret;
     }
 };
+
+
+// 简洁版
+class Solution {
+public:
+    vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
+        vector<int> ret;
+        // c[i]存放的是arr1中 = i 的元素个数
+        int c[1001] = {0};
+        for(int num : arr1) {
+            c[num]++;
+        }
+        // 将arr1中存在的arr2元素按序插入ret
+        for (int num : arr2) {
+            while (c[num]-- > 0) {
+                ret.emplace_back(num);
+            }
+        }
+        // 将arr1中非arr2元素插入ret
+        for (int i = 0; i < 1001; i++) {
+            while (c[i]-- > 0) {
+                ret.emplace_back(i);
+            }
+        }
+        return ret;
+    }
+};
