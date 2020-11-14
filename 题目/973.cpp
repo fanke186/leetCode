@@ -87,3 +87,34 @@ public:
         return ret;
     }
 };
+
+
+
+
+// 以下是介绍优先队列(priority_queue)的例子
+// 三个参数依次为：
+//              1.存储的元素类型
+//              2.用于存储元素的底层的容器类型
+//              3.严格弱序比较类型cmp
+// 注意：在弱序中, 若其第一参数 "先于" 其第二参数, 则返回 true
+//       但因为 priority_queue 首先输出"最大"元素，故"先来"的元素实际上最后输出。
+//          (这里的"最大","先来"都是在比较方法cmp下的)
+template<typename T> void print_queue(T& q) {
+	while (!q.empty()) {
+		cout << q.top() << '\t';
+		q.pop();	
+	}
+	cout << endl;
+}
+
+int main() {
+	priority_queue<int> qMax;
+	priority_queue<int, vector<int>, greater<int>> qMin;
+	for (int i : {1, 2, 3, 4, 5}) {
+		qMax.emplace(i);
+		qMin.emplace(i);
+	}
+	print_queue(qMax);
+	print_queue(qMin);
+	return 0;
+}
