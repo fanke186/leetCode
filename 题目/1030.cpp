@@ -57,5 +57,5 @@ public:
         }
         return ret;
     }
-}
+};
 
