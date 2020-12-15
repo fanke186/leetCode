@@ -72,3 +72,23 @@ public:
         return stoi(strN);
     }
 };
+
+
+// 从后往前找到上述的位置x
+class Solution {
+public:
+    int monotoneIncreasingDigits(int N) {
+        string A = to_string(N);
+        int x = A.size(); // 从位置x开始，都置为9
+        for (int i = A.size() - 1; i > 0; --i) {
+            if (A[i-1] > A[i]) {
+                A[i-1]--;
+                x = i;
+            }
+        }
+        for (int i = x; i < A.size(); ++i) {
+            A[i] = '9';
+        }
+        return stoi(A);
+    }
+};
