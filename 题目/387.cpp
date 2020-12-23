@@ -18,7 +18,6 @@ public:
                 ret = i;
                 break;
             }
-
         }
         return ret;
     }
