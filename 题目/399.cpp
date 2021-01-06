@@ -3,6 +3,7 @@
 #include <unordered_set>
 #include <unordered_map>
 #include <algorithm>
+#include <queue>
 
 using namespace std;
 
@@ -115,7 +116,7 @@ public:
                         int x = points.front();
                         points.pop();
 
-                        for (const auto [y, val]: edges[x]) {
+                        for (const auto [y, val] : edges[x]) {
                             if (ratios[y] < 0) {
                                 ratios[y] = ratios[x] * val;
                                 points.push(y);
