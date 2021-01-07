@@ -116,10 +116,10 @@ public:
                         int x = points.front();
                         points.pop();
 
-                        for (const auto [y, val] : edges[x]) {
-                            if (ratios[y] < 0) {
-                                ratios[y] = ratios[x] * val;
-                                points.push(y);
+                        for (const auto e : edges[x]) {
+                            if (ratios[e.first] < 0) {
+                                ratios[e.first] = ratios[x] * e.second;
+                                points.push(e.first);
                             }
                         }
                     }
