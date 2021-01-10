@@ -39,3 +39,25 @@ public:
         return ret;
     }
 };
+
+// 更优秀的代码
+// 少用了一个string变量
+class Solution {
+public:
+    vector<string> summaryRanges(vector<int>& nums) {
+        int n = nums.size();
+        vector<string> ret;
+        for (int i = 0; i < n; i++) {
+            int left = nums[i];
+            while (i < n-1 && nums[i+1] == nums[i] + 1) {
+                i++;
+            }
+            if (nums[i] != left) {
+                ret.push_back(to_string(left) + "->" + to_string(nums[i]));
+            } else {
+                ret.push_back(to_string(left));
+            }
+        }
+        return ret;
+    }
+};
