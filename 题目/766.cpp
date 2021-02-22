@@ -9,7 +9,6 @@ class Solution {
 public:
     bool isToeplitzMatrix(vector<vector<int>>& matrix) {
         int m = matrix.size(), n = matrix[0].size();
-        // values已保存   
         for (int no = 0; no < m; no++) {
             for (int i = no, j = 0; i < m && j < n; i++, j++) {
                 if (matrix[i][j] != matrix[no][0]) {
