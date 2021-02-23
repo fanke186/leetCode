@@ -43,6 +43,10 @@ public:
 
 // 通过了，但还是慢
 // 思路是对的，但是求maxProfit的过程很慢
+/*
+    先确定不使用技能时的客人总数，然后找到使用技能的最大收益值，
+    这样问题就转化为了：求指定长度的连续子数组之和的最大值问题
+*/
 class Solution {
 public:
     int maxSatisfied(vector<int>& customers, vector<int>& grumpy, int X) {
