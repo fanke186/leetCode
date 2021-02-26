@@ -38,3 +38,34 @@ public:
         return ret;
     }
 };
+
+// 回溯法求子集
+class Solution {
+public:
+    unordered_map<int, int> map;
+
+    int dfs(int curIdx, int curMask, string& puzzle) {
+        if (curIdx == puzzle.size()) {
+            return map[curMask];
+        }
+        return dfs(curIdx+1, curMask, puzzle) + 
+                dfs(curIdx+1, curMask | 1 << (puzzle[curIdx] - 'a'), puzzle);
+    }
+
+    vector<int> findNumOfValidWords(vector<string>& words, vector<string>& puzzles) {
+        for (string& word : words) {
+            int mask = 0;
+            for (char& ch : word) {
+                mask |= (1 << (ch - 'a'));
+            }
+            if (__builtin_popcount(mask) <= 7) {
+                map[mask]++;
+            }
+        }
+        vector<int> ret;
+        for (string& puzzle : puzzles) {
+            ret.push_back(dfs(1, 1 << (puzzle[0]-'a'), puzzle));
+        }
+        return ret;
+    }
+};
